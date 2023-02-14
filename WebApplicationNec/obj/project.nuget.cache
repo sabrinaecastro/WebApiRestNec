@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "KnMP8ivotEVasoRg4O1BKhFh9dIja4CzECk9AOZTXNA6pVU0G2+QA8biwaWqUtv+8wCliNpW6+iLYkfVcnwwQA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\scastro\\Documents\\WebApiRestNec\\WebApplicationNec\\WebApplicationNec.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\scastro\\.nuget\\packages\\bootstrap\\3.0.0\\bootstrap.3.0.0.nupkg.sha512",
+    "C:\\Users\\scastro\\.nuget\\packages\\datatables.net\\1.12.1\\datatables.net.1.12.1.nupkg.sha512",
+    "C:\\Users\\scastro\\.nuget\\packages\\datatables.net-bs\\1.13.2\\datatables.net-bs.1.13.2.nupkg.sha512",
+    "C:\\Users\\scastro\\.nuget\\packages\\jquery\\1.9.0\\jquery.1.9.0.nupkg.sha512",
+    "C:\\Users\\scastro\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\scastro\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

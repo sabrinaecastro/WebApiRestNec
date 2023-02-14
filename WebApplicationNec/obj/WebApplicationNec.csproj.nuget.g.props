@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\scastro\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\scastro\.nuget\packages\" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\css\dataTables.bootstrap.css" Condition="Exists('$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\css\dataTables.bootstrap.css')">
+      <NuGetPackageId>datatables.net-bs</NuGetPackageId>
+      <NuGetPackageVersion>1.13.2</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>wwwroot\css\dataTables.bootstrap.css</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\css\dataTables.bootstrap.min.css" Condition="Exists('$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\css\dataTables.bootstrap.min.css')">
+      <NuGetPackageId>datatables.net-bs</NuGetPackageId>
+      <NuGetPackageVersion>1.13.2</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>wwwroot\css\dataTables.bootstrap.min.css</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\js\dataTables.bootstrap.js" Condition="Exists('$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\js\dataTables.bootstrap.js')">
+      <NuGetPackageId>datatables.net-bs</NuGetPackageId>
+      <NuGetPackageVersion>1.13.2</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>wwwroot\js\dataTables.bootstrap.js</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\js\dataTables.bootstrap.min.js" Condition="Exists('$(NuGetPackageRoot)datatables.net-bs\1.13.2\contentFiles\any\any\wwwroot\js\dataTables.bootstrap.min.js')">
+      <NuGetPackageId>datatables.net-bs</NuGetPackageId>
+      <NuGetPackageVersion>1.13.2</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>wwwroot\js\dataTables.bootstrap.min.js</Link>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\scastro\.nuget\packages\jquery\1.9.0</PkgjQuery>
+  </PropertyGroup>
+</Project>
