@@ -1,0 +1,30 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+.column {
+    float: left;
+    width: auto;
+}
+
+.contenedor {
+    height: 49%;
+    margin: 1% 1%;
+    padding-bottom:inherit;
+}

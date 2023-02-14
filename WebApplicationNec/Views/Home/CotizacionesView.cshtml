@@ -1,0 +1,96 @@
+﻿@using WebApplicationMostrar.Models
+@model CriptoConversion
+
+
+   
+    
+<script>
+    $(document).ready(function () {
+        $('#datatablecotiaciones').DataTable({
+            responsive: true,
+            "bFilter": true,
+            "sPaginationType": "full_numbers",
+            /* opciones para paginar el 1ero lo elige por default */
+            "lengthMenu": [[10, 15, 25, -1], [10, 15, 25, "Todos"]],
+            /* para no mostrar las posibilidad de paginar cada xx registros */
+            "bLengthChange": false,
+            /* Se define las columnas que no se quiere que se ordenen, agregar el class no-sort en los th */
+            "columnDefs": [{
+                "targets": ['no-sort'],
+                "orderable": false
+            }],
+            /* Se define el orden default, se puede agregar + columnas con coma y corchete */
+            "order": [
+                [1, "asc"]
+            ],
+            /* Traducción al español */
+            "language": {
+                "decimal": ",",
+                "thousands": ".",
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": " Resultados _START_-_END_ <span class='text-muted'> de _TOTAL_ </span>",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "<h4 style='display: inline'> Filtrar: </h4>",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sLast": ">>",
+                    "sNext": ">",
+                    "sPrevious": "<"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            },
+            /* Cuando solo hay 1 pagina oculta el paginado, si hay mas de 1 lo muestra  */
+            "fnDrawCallback": function (oSettings) {
+                if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+                    $(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+                } else {
+                    $(oSettings.nTableWrapper).find('.dataTables_paginate').show();
+                }
+            }
+
+        });
+
+    });
+</script>
+
+
+<div>
+    <table id="datatablecotiaciones" class="table table-striped" cellspacing="0" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Cryptomoneda</th>
+                <th>Cotizacion (USD)</th>
+                <th>Fecha ultima modificacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null )
+            {
+                @foreach (CryptocurrencyWithLatestQuote item in Model.Datos)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Quote.First().Value.Price</td>
+                        <td>@item.LastUpdated</td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+     </table>
+</div>
+
+
+
+

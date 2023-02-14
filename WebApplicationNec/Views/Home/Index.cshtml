@@ -1,0 +1,70 @@
+﻿@using WebApplicationMostrar.Models
+@model CriptoConversion
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Cripto Cotizaciones";
+}
+
+
+<div class="container">
+    @{
+        Html.RenderPartial("~/Views/Home/CotizacionesView.cshtml", Model);
+    }
+</div>
+
+<hr />
+
+<div class="container" style="margin-top: 15px">
+    <div class="column" style="padding-right: 10%;width: 30%;">
+        <form id="formCripto" name="formCripto" method="post" onsubmit="" action="@Url.Action("ActualizacionConversiones", "Home")" >
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <input id="ValorTotal" name="ValorTotal" type="hidden" >
+                  <label for="inlineFormInput">Criptomoneda</label>
+                   <div class="form-group">
+                        <select name="IdLstCritomoneda" id="IdLstCritomoneda" class="form-control" style="width: 100%; margin-bottom: 5px; font-size: 14px;">
+                            @if (Model != null)
+                            {
+                                @foreach (CryptocurrencyWithLatestQuote item in Model.Datos)
+                                {
+                                    @if (Model.IdLstCritomoneda != null && Model.IdLstCritomoneda!="" && @item.Symbol == Model.IdLstCritomoneda)
+                                    {
+                                        <option value="@item.Symbol" selected> @item.Name </option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Symbol"> @item.Name </option>
+                                    }
+                                    
+                                   
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-auto">
+                  <label for="inlineFormInputGroup">Monto</label>
+                  <div class="input-group">
+                        <input type="number" class="form-control" id="IdCantidad" name="IdCantidad" value="@Model.IdCantidad" placeholder="monto a convertir mayor a cero" >
+                  </div>
+                </div>
+        
+                <div class="col-auto" style="margin-top: 15px;">
+                    <label for="inlineFormInputGroup"></label>
+                  <button type="submit" class="btn btn-primary mb-2">Convertir</button>
+                </div>
+              </div>
+        </form>
+    </div>
+        <div class="column" style="float: right; width: 60%">
+        @{@if (Model.IdCantidad > 0){
+     
+            Html.RenderPartial("~/Views/Home/ConversionView.cshtml", Model);
+            }
+        }
+    </div>
+</div>
+

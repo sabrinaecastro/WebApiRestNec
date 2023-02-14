@@ -1,0 +1,132 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+<hr style="border: 0; height: 2px; background-color:#85A1E5" />
+<div class="row" align="center">
+    <div class="col-md-6 col-md-push-6">
+        <div class="row">
+            @if (Model.FotoPersonaPendiente != null)
+            {
+                <div class="col-md-6 AlineadoSegunVista">
+                    <img id="fotMiLegajo" class="img-rounded" style=" width: 120px; border-width: 140px; " src="data:image/png;base64,@System.Convert.ToBase64String(@Model.FotoPersona)" />
+                    <ul class="pager AlineadoSegunVista2">
+                        <li style="cursor: pointer;" onclick="window.location.href = '@Url.Action("Index", "ModificacionDatos")';">
+                            <a id="Ingresar" style="background-color: #ffffff; cursor: pointer; width: 120px; text-align: center;"><span class="textComunSinColor"> Actualizar</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 hidden-sm hidden-xs" style="text-align:left;">
+                    <img id="fotMiLegajoPendiente" class="img-rounded" style=" width: 120px; border-width: 140px; " src="data:image/png;base64,@System.Convert.ToBase64String(@Model.FotoPersonaPendiente)" />
+                    <p style="width: 121px; font-size:large; font-weight:600; color:ivory; text-align: center;font-family: cursive; position: relative; top: -30px; filter: alpha(opacity=100); -moz-opacity: .50; opacity: .70;">Pendiente</p>
+                </div>
+            }
+            else if (Model.FotoPersonaPendiente == null && Model.ToString() == "Negocio.Models.DatosContactoPendiente")
+            {
+                <div class="col-md-12">
+                    <img id="fotMiLegajo" class="img-rounded" style=" width: 120px; border-width: 140px; " src="data:image/png;base64,@System.Convert.ToBase64String(@Model.FotoPersona)" />
+                </div>
+            }
+            else if (Model.ToString() == "Negocio.Models.CertificadoVacunacionPersona")
+            {
+            <div class="col-md-12">
+                <img id="fotMiLegajo" class="img-rounded" style=" width: 120px; border-width: 140px; " src="data:image/png;base64,@System.Convert.ToBase64String(@Model.FotoPersona)" />
+                <ul class="pager AlineadoSegunVista2">
+                    <li style="cursor: pointer;" onclick="window.location.href = '@Url.Action("VacunacionCertificado", "ModificacionDatos")';">
+                        <a id="Ingresar" style="background-color: #ffffff; cursor: pointer; width: 120px; text-align: center;"><span class="textComunSinColor"> Actualizar</span></a>
+                    </li>
+                </ul>
+            </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    <img id="fotMiLegajo" class="img-rounded" style=" width: 120px; border-width: 140px; " src="data:image/png;base64,@System.Convert.ToBase64String(@Model.FotoPersona)" />
+                    <ul class="pager AlineadoSegunVista2">
+                        <li style="cursor: pointer;" onclick="window.location.href = '@Url.Action("Index", "ModificacionDatos")';">
+                            <a id="Ingresar" style="background-color: #ffffff; cursor: pointer; width: 120px; text-align: center;"><span class="textComunSinColor"> Actualizar</span></a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-6 col-md-pull-6" style="text-align:left;">
+        <div class="row">
+            <div class="col-md-6 col-sm-4 col-xs-6">
+                <label class="textComunColor">Número de legajo</label>
+            </div>
+            <div class="col-md-6 col-sm-8 col-xs-6">
+                <input id="txtNumeroLegajo" readonly style="width: 100%; border-width: 0px;" class="textComunSinColor" type="text" value="@Model.IdLegajoConFormato" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-4 col-xs-6">
+                <label class="textComunColor">Nombre y Apellido</label>
+            </div>
+            <div class="col-md-6 col-sm-8 col-xs-6">
+                <input id="txtApellidoNombre" readonly style="width: 100%; border-width: 0px; font-weight:bold;" class="textComunSinColor" type="text" value="@Model.Apellido, @Model.Nombre" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-4 col-xs-6">
+                <label class="textComunColor">Número de DNI</label>
+            </div>
+            <div class="col-md-6 col-sm-8 col-xs-6">
+                <input id="txtDNI" readonly style="width: 100%; border-width: 0px; " class="textComunSinColor" type="text" value="@Model.NumeroDocumento" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-4 col-xs-6">
+                <label class="textComunColor">CUIL</label>
+            </div>
+            <div class="col-md-6 col-sm-8 col-xs-6">
+                <input id="txtCUIL" readonly style="width: 100%; border-width: 0px;" class="textComunSinColor" type="text" value="@Model.CuilConFormato" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-4 col-xs-6">
+                <label class="textComunColor">Fecha de Nacimiento</label>
+            </div>
+            <div class="col-md-6 col-sm-8 col-xs-6">
+                <input id="txtFechaNacimiento" readonly style=" width: 100%; border-width: 0px;" class="textComunSinColor" value="@Model.FechaNacimiento.ToString("dd/MM/yyyy")" />
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.EmailEnviado == "TRUE")
+{
+    <script>
+        swal({
+            title: "Email",
+            text: "<span style='color:black'>El correo se ha enviado correctamente.</span>",
+            type: "success",
+            confirmButtonColor: "#4165BB",
+            confirmButtonText: "Continuar",
+            closeOnConfirm: true,
+            html: true
+        });
+    </script>
+}
+@if (ViewBag.EmailEnviado == "FALSE")
+{
+    <script>
+        swal({
+            title: "Email",
+            text: "<span style='color:black'>Ha ocurrido un error, el correo no se pudo enviar.</span>",
+            type: "alert",
+            confirmButtonColor: "#4165BB",
+            confirmButtonText: "Continuar",
+            closeOnConfirm: true,
+            html: true
+        });
+    </script>
+}
+<div class="textComunColor" style="text-align: right; font-size: 18px; font-family: 'Roboto', serif; padding-right:120px;">
+    <span class="glyphicon glyphicon-inbox" style="font-size: 16px;color: #4265bc;"></span>
+    <span id="spnSugerencia" onclick="window.location.href = '@Url.Action("Index", "Buzon")';">Informe aquí si detecta algún dato incorrecto.</span>
+</div>
+<hr style="border: 0; height: 2px; background-color:#85A1E5" />
+<br />
+@RenderBody()
+
+
